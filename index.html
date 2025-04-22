@@ -4,9 +4,54 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculator!</title>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <link rel="stylesheet" href="styles.css" />
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="calculator.ico" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body></body>
+  <body>
+    <section class="calculator">
+      <div class="container">
+        <div class="display-header">
+          <div class="display quantico-regular">0</div>
+        </div>
+        <div class="buttons">
+          <div class="row1-btns">
+            <button class="operant btn">AC</button>
+            <button class="operant btn">%</button>
+            <button class="operant btn">+/-</button>
+            <button class="operant btn">/</button>
+          </div>
+          <div class="row2-btns">
+            <button class="num btn">7</button>
+            <button class="num btn">8</button>
+            <button class="num btn">9</button>
+            <button class="operant btn">*</button>
+          </div>
+          <div class="row3-btns">
+            <button class="num btn">4</button>
+            <button class="num btn">5</button>
+            <button class="num btn">6</button>
+            <button class="operant btn">-</button>
+          </div>
+          <div class="row4-btns">
+            <button class="num btn">1</button>
+            <button class="num btn">2</button>
+            <button class="num btn">3</button>
+            <button class="operant btn">+</button>
+          </div>
+          <div class="row5-btns">
+            <button class="num btn">0</button>
+            <button class="operant btn">.</button>
+            <button class="operant btn">=</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
 </html>

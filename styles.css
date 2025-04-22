@@ -1,0 +1,120 @@
+* {
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+.quantico-regular {
+  font-family: "Quantico", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.quantico-bold {
+  font-family: "Quantico", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.quantico-regular-italic {
+  font-family: "Quantico", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.quantico-bold-italic {
+  font-family: "Quantico", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+body {
+  background-color: #80ed99;
+}
+
+.calculator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3vw;
+}
+
+.container {
+  width: 400px;
+  height: 600px;
+  border: 7px solid black;
+  display: flex;
+  background-color: black;
+  border-radius: 15px;
+  flex-direction: column;
+}
+
+.display-header {
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+  height: 20%;
+  border: 3px solid black;
+  border-radius: 5px;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  padding: 7px;
+}
+
+.display {
+  font-size: 30px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(57, 55, 55);
+  padding: 0.6vw;
+  border-radius: 5px;
+}
+
+.row1-btns,
+.row2-btns,
+.row3-btns,
+.row4-btns,
+.row5-btns {
+  width: 100%;
+  display: flex;
+  gap: 3px;
+  justify-content: center;
+}
+
+.row1-btns button,
+.row2-btns button,
+.row3-btns button,
+.row4-btns button {
+  width: calc(100% / 4);
+}
+
+.row5-btns button {
+  width: calc(100% / 3);
+}
+
+.row1-btns button,
+.row2-btns button,
+.row3-btns button,
+.row4-btns button,
+.row5-btns button {
+  height: calc(480px / 5);
+  border: 3px solid black;
+  border-radius: 7px;
+  transition: 0.4s ease-in-out;
+  font-size: 30px;
+}
+
+button:hover {
+  transform: scale(1.02);
+}
+
+.num {
+  background-color: rgb(171, 160, 160);
+}
+
+.operant {
+  background-color: burlywood;
+}
