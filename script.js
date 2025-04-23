@@ -32,19 +32,25 @@ let operator = "+";
 
 // OPERATOR FUNCTION
 
-function operate(operator, num1, num2) {
+function operate(operator, num1, ...num2) {
   switch (operator) {
     case "+":
-      displayResults(add(num1, num2));
+      displayResults(add(num1, num2[0]));
       break;
     case "-":
-      displayResults(subtract(num1, num2));
+      displayResults(subtract(num1, num2[0]));
       break;
     case "*":
-      displayResults(multiply(num1, num2));
+      displayResults(multiply(num1, num2[0]));
       break;
     case "/":
-      displayResults(divide(num1, num2));
+      displayResults(divide(num1, num2[0]));
+      break;
+    case "%":
+      displayResults(percent(num1));
+      break;
+    case "+/-":
+      displayResults(invert(num1));
       break;
   }
 }
