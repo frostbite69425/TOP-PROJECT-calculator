@@ -35,16 +35,16 @@ let operator = "+";
 function operate(operator, num1, num2) {
   switch (operator) {
     case "+":
-      return add(num1, num2);
+      displayResults(add(num1, num2));
       break;
     case "-":
-      return subtract(num1, num2);
+      displayResults(subtract(num1, num2));
       break;
     case "*":
-      return multiply(num1, num2);
+      displayResults(multiply(num1, num2));
       break;
     case "/":
-      return divide(num1, num2);
+      displayResults(divide(num1, num2));
       break;
   }
 }
@@ -53,17 +53,58 @@ function operate(operator, num1, num2) {
 
 const numButtons = document.querySelectorAll(".buttons button.num");
 const display = document.querySelector(".display-header .display");
+const operantButtons = document.querySelectorAll("button.operant");
+const equalButton = document.querySelector("button.equal");
 
 // FUNCTIONS USING SELECTORS
 
 let fired = false;
 
+function displayNumbers() {
+  if (fired != true) {
+    fired = true;
+    display.textContent = "";
+  }
+
+  if (display.textContent == "0") {
+    display.textContent = this.textContent;
+  } else {
+    display.textContent += this.textContent;
+  }
+  setValue();
+  // replacing this with button.textContent makes it work as an anaonymous function inside the event listener
+}
+
+let displayValue = 0;
+
+function setValue() {
+  setTimeout(() => {
+    displayValue = Number(display.textContent);
+  }, 500);
+}
+
 numButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    if (fired != true) {
-      fired = true;
-      display.textContent = "";
-    }
-    display.textContent += button.textContent;
-  });
+  button.addEventListener("click", displayNumbers);
 });
+
+operantButtons.forEach((button) => {
+  button.addEventListener("click", registerOperator);
+});
+
+function registerOperator() {
+  operator = this.textContent;
+  firstNumber = displayValue;
+  fired = false;
+}
+
+equalButton.addEventListener("click", () => {
+  fired = false;
+  secondNumber = displayValue;
+  operate(operator, firstNumber, secondNumber);
+});
+
+function displayResults(num) {
+  display.textContent = num;
+  fired = false;
+  setValue();
+}
