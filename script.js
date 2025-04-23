@@ -59,6 +59,8 @@ const equalButton = document.querySelector("button.equal");
 // FUNCTIONS USING SELECTORS
 
 let fired = false;
+let multiBlock = false;
+// FUNCTION FOR DISPLAYING NUMBERS FROM USER INPUT
 
 function displayNumbers() {
   if (fired != true) {
@@ -71,16 +73,17 @@ function displayNumbers() {
   } else {
     display.textContent += this.textContent;
   }
+  multiBlock = false;
   setValue();
   // replacing this with button.textContent makes it work as an anaonymous function inside the event listener
 }
 
 let displayValue = 0;
 
+// FUNCTION FOR STORING THE NUMBER ON THE SCREEN
+
 function setValue() {
-  setTimeout(() => {
-    displayValue = Number(display.textContent);
-  }, 500);
+  displayValue = Number(display.textContent);
 }
 
 numButtons.forEach((button) => {
@@ -97,13 +100,15 @@ let firstOperator = true;
 const triggerEvent = (el, eventType, detail) =>
   el.dispatchEvent(new CustomEvent(eventType, { detail }));
 
+// FUNCTION FOR STORING THE OPERATOR
 function registerOperator() {
+  if (firstOperator == false && multiBlock == false) {
+    triggerEvent(equalButton, "click");
+    multiBlock = true;
+  }
   operator = this.textContent;
   firstNumber = displayValue;
   fired = false;
-  if (firstOperator == false) {
-    triggerEvent(equalButton, "click");
-  }
   firstOperator = false;
 }
 
@@ -112,11 +117,11 @@ equalButton.addEventListener("click", () => {
   secondNumber = displayValue;
   operate(operator, firstNumber, secondNumber);
   operator = null;
+  setValue();
   firstNumber = displayValue;
 });
 
 function displayResults(num) {
   display.textContent = num;
   fired = false;
-  setValue();
 }
