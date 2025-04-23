@@ -91,16 +91,28 @@ operantButtons.forEach((button) => {
   button.addEventListener("click", registerOperator);
 });
 
+let firstOperator = true;
+
+// CUSTOM TRIGGER EVENT
+const triggerEvent = (el, eventType, detail) =>
+  el.dispatchEvent(new CustomEvent(eventType, { detail }));
+
 function registerOperator() {
   operator = this.textContent;
   firstNumber = displayValue;
   fired = false;
+  if (firstOperator == false) {
+    triggerEvent(equalButton, "click");
+  }
+  firstOperator = false;
 }
 
 equalButton.addEventListener("click", () => {
   fired = false;
   secondNumber = displayValue;
   operate(operator, firstNumber, secondNumber);
+  operator = null;
+  firstNumber = displayValue;
 });
 
 function displayResults(num) {

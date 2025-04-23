@@ -115,11 +115,20 @@ button:hover {
   transform: scale(1.02);
 }
 
+button.operant:active,
+button.equal:active {
+  background-color: rgb(247, 172, 75);
+}
+
+button.num:active {
+  background-color: rgb(213, 209, 209);
+}
+
 .num {
   background-color: rgb(171, 160, 160);
 }
 
 .operant,
 .equal {
-  background-color: burlywood;
+  background-color: rgb(255, 145, 0);
 }
