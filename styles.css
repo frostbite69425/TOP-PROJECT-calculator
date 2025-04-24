@@ -114,6 +114,7 @@ button:hover {
   transform: scale(0.98);
 }
 
+button.percent:active,
 button.operant:active,
 button.equal:active {
   background-color: rgb(247, 172, 75);
@@ -127,7 +128,13 @@ button.num:active {
   background-color: rgb(171, 160, 160);
 }
 
+.percent,
 .operant,
 .equal {
   background-color: rgb(255, 145, 0);
+}
+
+.ac,
+.del {
+  background-color: rgb(238, 56, 56);
 }

@@ -16,14 +16,6 @@ function divide(a, b) {
   return a / b;
 }
 
-function invert(a) {
-  return -a;
-}
-
-function percent(a) {
-  return a / 100;
-}
-
 // THREE VARIABLES REQUIRED FOR THE OPERATION
 
 let firstNumber = 0;
@@ -46,12 +38,6 @@ function operate(operator, num1, ...num2) {
     case "/":
       displayResults(divide(num1, num2[0]));
       break;
-    case "%":
-      displayResults(percent(num1));
-      break;
-    case "+/-":
-      displayResults(invert(num1));
-      break;
   }
 }
 
@@ -61,6 +47,9 @@ const numButtons = document.querySelectorAll(".buttons button.num");
 const display = document.querySelector(".display-header .display");
 const operantButtons = document.querySelectorAll("button.operant");
 const equalButton = document.querySelector("button.equal");
+const percentButton = document.querySelector("button.percent");
+const acButton = document.querySelector("button.ac");
+const delButton = document.querySelector("button.del");
 
 // FUNCTIONS USING SELECTORS
 
@@ -131,3 +120,27 @@ function displayResults(num) {
   display.textContent = num;
   fired = false;
 }
+
+percentButton.addEventListener("click", () => {
+  // setValue();
+  displayValue = displayValue / 100;
+  display.textContent = displayValue;
+  setValue();
+  firstNumber = displayValue;
+});
+
+acButton.addEventListener("click", () => {
+  display.textContent = "0";
+  firstNumber = 0;
+  secondNumber = 1;
+  operator = null;
+});
+
+delButton.addEventListener("click", () => {
+  displayValue = Number(
+    displayValue.toString().slice(0, displayValue.length - 2)
+  );
+  display.textContent = displayValue;
+  setValue();
+  firstNumber = displayValue;
+});
