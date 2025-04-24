@@ -71,6 +71,7 @@ body {
   background-color: rgb(57, 55, 55);
   padding: 0.6vw;
   border-radius: 5px;
+  gap: 4px;
 }
 
 .row1-btns,
@@ -138,4 +139,56 @@ button.num:active {
 .ac,
 .del {
   background-color: rgb(238, 56, 56);
+}
+
+/* From Uiverse.io by McHaXYT */
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.button-git {
+  cursor: pointer;
+  text-decoration: none;
+  color: #ffff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #2d2e32;
+  border: 2px solid #2d2e32;
+  transition: all 0.45s;
+}
+
+.button-git:hover {
+  transform: rotate(360deg);
+  transform-origin: center center;
+  background-color: #ffff;
+  color: #2d2e32;
+}
+
+.button-git:hover .btn-svg {
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(305deg)
+    brightness(103%) contrast(103%);
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-text {
+  font-size: 3vh;
+  font-weight: 600;
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  gap: 3px;
+  padding: 7px;
+  justify-content: center;
+  align-items: center;
 }

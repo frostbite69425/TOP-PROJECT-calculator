@@ -1,15 +1,15 @@
 // BASIC FUNCTIONS FOR THE BASIC OPERATIONS
 
 function add(a, b) {
-  return a + b;
+  return Math.round((a + b) * 100) / 100;
 }
 
 function subtract(a, b) {
-  return a - b;
+  return Math.round((a - b) * 100) / 100;
 }
 
 function multiply(a, b) {
-  return a * b;
+  return Math.round(a * b * 100) / 100;
 }
 
 function divide(a, b) {
@@ -54,6 +54,7 @@ const percentButton = document.querySelector("button.percent");
 const acButton = document.querySelector("button.ac");
 const delButton = document.querySelector("button.del");
 const dotButton = document.querySelector("button.dot");
+const gitButton = document.querySelector("button.button-git");
 
 // FUNCTIONS USING SELECTORS
 
@@ -113,6 +114,10 @@ document.addEventListener("keydown", (e) => {
     triggerEvent(dotButton, "click");
   } else if (e.key == "%") {
     triggerEvent(percentButton, "click");
+  } else if (e.key == "c") {
+    triggerEvent(acButton, "click");
+  } else if (e.key == "Backspace") {
+    triggerEvent(delButton, "click");
   }
 });
 
@@ -185,4 +190,10 @@ delButton.addEventListener("click", () => {
 dotButton.addEventListener("click", () => {
   string = displayValue.toString().concat(".");
   display.textContent = string;
+});
+
+// REDIRECT FUNCTION
+
+gitButton.addEventListener("click", () => {
+  window.location.href = "https://github.com/frostbite69425";
 });
