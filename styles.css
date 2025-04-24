@@ -128,6 +128,7 @@ button.num:active {
   background-color: rgb(171, 160, 160);
 }
 
+.dot,
 .percent,
 .operant,
 .equal {

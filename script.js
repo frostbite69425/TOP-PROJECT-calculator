@@ -13,7 +13,10 @@ function multiply(a, b) {
 }
 
 function divide(a, b) {
-  return a / b;
+  if (b == 0) {
+    return "Cannot divide by 0!";
+  }
+  return Math.round((a / b) * 100) / 100;
 }
 
 // THREE VARIABLES REQUIRED FOR THE OPERATION
@@ -50,6 +53,7 @@ const equalButton = document.querySelector("button.equal");
 const percentButton = document.querySelector("button.percent");
 const acButton = document.querySelector("button.ac");
 const delButton = document.querySelector("button.del");
+const dotButton = document.querySelector("button.dot");
 
 // FUNCTIONS USING SELECTORS
 
@@ -122,7 +126,6 @@ function displayResults(num) {
 }
 
 percentButton.addEventListener("click", () => {
-  // setValue();
   displayValue = displayValue / 100;
   display.textContent = displayValue;
   setValue();
@@ -137,10 +140,12 @@ acButton.addEventListener("click", () => {
 });
 
 delButton.addEventListener("click", () => {
-  displayValue = Number(
-    displayValue.toString().slice(0, displayValue.length - 2)
-  );
+  string = displayValue.toString();
+  displayValue = string.slice(0, string.length - 1);
   display.textContent = displayValue;
-  setValue();
-  firstNumber = displayValue;
+});
+
+dotButton.addEventListener("click", () => {
+  string = displayValue.toString().concat(".");
+  display.textContent = string;
 });
