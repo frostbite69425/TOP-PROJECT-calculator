@@ -108,6 +108,7 @@ document.addEventListener("keydown", (e) => {
     firstNumber = displayValue;
     fired = false;
     firstOperator = false;
+    dotPrevent = false;
   } else if (e.key == "Enter") {
     triggerEvent(equalButton, "click");
   } else if (e.key == ".") {
@@ -151,6 +152,7 @@ function registerOperator() {
   firstNumber = displayValue;
   fired = false;
   firstOperator = false;
+  dotPrevent = false;
 }
 
 equalButton.addEventListener("click", () => {
@@ -187,9 +189,14 @@ delButton.addEventListener("click", () => {
   display.textContent = displayValue;
 });
 
+let dotPrevent = false;
+
 dotButton.addEventListener("click", () => {
-  string = displayValue.toString().concat(".");
-  display.textContent = string;
+  if (dotPrevent == false) {
+    string = displayValue.toString().concat(".");
+    display.textContent = string;
+    dotPrevent = true;
+  }
 });
 
 // REDIRECT FUNCTION
