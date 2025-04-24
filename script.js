@@ -79,6 +79,43 @@ function displayNumbers() {
 
 let displayValue = 0;
 
+// KEYBOARD SUPPORT
+
+numberArr = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+numOperator = ["*", "/", "-", "+"];
+
+document.addEventListener("keydown", (e) => {
+  if (numberArr.includes(e.key)) {
+    if (fired != true) {
+      fired = true;
+      display.textContent = "";
+    }
+
+    if (display.textContent == "0") {
+      display.textContent = e.key;
+    } else {
+      display.textContent += e.key;
+    }
+    multiBlock = false;
+    setValue();
+  } else if (numOperator.includes(e.key)) {
+    if (firstOperator == false && multiBlock == false) {
+      triggerEvent(equalButton, "click");
+      multiBlock = true;
+    }
+    operator = e.key;
+    firstNumber = displayValue;
+    fired = false;
+    firstOperator = false;
+  } else if (e.key == "Enter") {
+    triggerEvent(equalButton, "click");
+  } else if (e.key == ".") {
+    triggerEvent(dotButton, "click");
+  } else if (e.key == "%") {
+    triggerEvent(percentButton, "click");
+  }
+});
+
 // FUNCTION FOR STORING THE NUMBER ON THE SCREEN
 
 function setValue() {
