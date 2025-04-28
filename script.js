@@ -110,6 +110,7 @@ document.addEventListener("keydown", (e) => {
     firstOperator = false;
     dotPrevent = false;
   } else if (e.key == "Enter") {
+    e.preventDefault();
     triggerEvent(equalButton, "click");
   } else if (e.key == ".") {
     triggerEvent(dotButton, "click");
